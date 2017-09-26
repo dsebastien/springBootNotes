@@ -1,5 +1,6 @@
 # Summary
 
 * [Introduction](README.md)
-* [Maven commands](chapter1.md)
+* [Maven](chapter1.md)
+* [Configuration](configuration.md)
 
