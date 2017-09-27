@@ -1,3 +1,23 @@
 {
-    root: "."
+  "gitbook": ">=3.0.0",
+  "title": "SpringBootNotes",
+  "description": "Notes about Spring Boot",
+  "author": "dSebastien",
+  "plugins": [
+    "edit-link",
+    "github",
+    "-search",
+    "codeblock-disable-glossary",
+    "collapsible-menu",
+    "anchors"
+  ],
+  "pluginsConfig": {
+    "edit-link": {
+      "base": "https://github.com/airbnb/enzyme/tree/master",
+      "label": "Edit This Page"
+    },
+    "github": {
+      "url": "https://github.com/airbnb/enzyme/"
+    }
+  }
 }
