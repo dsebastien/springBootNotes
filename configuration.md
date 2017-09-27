@@ -4,7 +4,6 @@
   * those classes make the Spring Boot magic happen
 * @Import to load additional configuration classes
 * @EnableAutoConfiguration\(exclude =... .class\): to disable some automatic configuration classes
-* @EntityScan: used by Spring Boot to detect entities \(e.g., JPA entities\)
-* 
+* * 
 
 
