@@ -1,20 +1,3 @@
 {
-  "gitbook": ">=3.0.0",
-  "title": "SpringBootNotes",
-  "description": "Notes about Spring Boot",
-  "author": "dSebastien",
-  "language": "en",
-  "plugins": [
-    "edit-link",
-    "github",
-    "-search",
-    "codeblock-disable-glossary",
-    "collapsible-menu",
-    "anchors"
-  ],
-  "pluginsConfig": {
-    "github": {
-      "url": "https://github.com/dsebastien/springBootNotes/"
-    }
-  }
+    root: "."
 }
