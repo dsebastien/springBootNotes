@@ -11,13 +11,13 @@
 
 ## Externalized
 
-### Possibilites & loading/override order:
+### Possibilites, injection & loading/override order:
 
 * .properties or .yml
   * application.properties\|yml
 * inject values via @Value
 * ```
-  @Value("${name}")
+  @Value("${name}") // no relaxed binding here, the names MUST match
   private String name;
   ```
 
@@ -130,10 +130,56 @@ public class MyService {
 }
 ```
 
+## @ConfigurationProperties
+
+* can be used to annotate a class
+* can be used to annotate an @Bean method
+  * useful to bind properties to third-party components outside of your control
+* Spring Boot uses relaxed rules for binding Environment properties to @ConfigurationProperties, no need to have an exact match
+  * person.firstName
+  * person.first-name: recommended in .properties and .yml
+  * person.first\_name: recommended in .properties and .yml
+  * PERSON\_FIRSTNAME: recommended when using system environment variables
+* properties will be coerced to the right type when bound to the @ConfigurationProperties
+  * can be customized via a ConversionService bean \(bean id: conversionService\) 
+  * can be customized via custom property editors or custom converters
+  * required early, so shouldn't have too many dependencies
+* @ConfigurationProperties will be validated if annotated with Spring's @Validated. JSR-303 \(javax.validation\) constraints can then be used, as long as an implementation is on the classpath
+  * to validate nested properties, use @Valid on the nested property to trigger its validation
+  * possible to write custom validator: ConfigurationPropertiesValidator
+
+## @Value &lt;-&gt; @ConfigurationProperties
+
+* @Value
+  * no relaxed binding
+  * no metadata support
+  * SpEL evaluation supported
+* @ConfigurationProperties
+  * relaxed binding
+  * metadata support
+  * no SpEL evaluation
+
+## POJO for configuration
+
+Spring recommends to regroup configuration keys in a POJO with @ConfigurationProperties:
+
+* centralized
+* visible
+* easy to validate
+* easy to inject
+* ...
+
 ## Profiles
 
-* defining active profiles
-  * through spring.profiles.active
+Active profiles can be defined via
+
+* config file \(e.g., application.properties\|yml\)
+  * spring.profiles.active=dev,bla
+* command line switch: --spring.profiles.active=dev,bla
+  * overrides value if defined in application.properties\|yml
+* programmatically
+  * SpringApplication.setAdditionalProfiles\(...\)
+  * ConfigurableEnvironment
 
 ## Banner
 
