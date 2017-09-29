@@ -51,7 +51,7 @@
 
   * application-{profile}.properties\|yml
 
-  * application-default.properties \(_default _active profile\)
+  * application-default.properties \(\_default \_active profile\)
 
 * @PropertySource on an @Configuration class
 
@@ -103,6 +103,31 @@ spring:
 server:
     url: ...pro
 ...
+```
+
+To extract a subset of an application.yml file:
+
+```
+@Component
+@ConfigurationProperties(prefix="foo")
+public class FooProperties { ... }
+...
+application.yml:
+
+foo:
+    url: ...
+    ...
+...
+```
+
+With the above, those properties can then easily be injected:
+
+```
+@Service
+public class MyService {
+    @Autowired
+    public MyService(FooProperties ...){ ... }
+}
 ```
 
 ## Profiles
