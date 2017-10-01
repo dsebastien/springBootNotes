@@ -54,11 +54,59 @@ Configuration keys:
 
 ## Redis
 
+* auto configuration of the Jedis client library
+* spring-boot-starter-data-redis
+* connecting: inject an auto configured
+  * RedisConnectionFactory
+  * StringRedisTemplate
+  * RedisTemplate
+  * IF commons-pool2 is on the classpath, you'll get a pooled connection factory by default
 
+## MongoDB
 
+* auto configuration of a MongoDbFactory
+* tries to connect to mongodb://localhost/test by default
+* spring.data.mongo.uri=mongodb://user:secret@mongo1.example.com:12345,mongo2.example.com:23456/testmongodb://user:secret@mongo1.example.com:12345,mongo2.example.com:23456/test
 
+  * replica set
 
-## 
+* a custom MongoDbFactory can be declared \(or Mongo bean to take complete control of establishing the MongoDB connection\)
+
+* auto configured MongoTemplate
+
+  * see MongoOperations for details
+
+* Spring Data MongoDB repositories
+
+  * queries are constructed for us automatically based on method names
+
+* auto configured embedded mongo server
+
+  * to use it, add a dependency to de.flapdoodle.embed:de.flapdoodle.embed
+
+  * the port can be customized via spring.data.mongodb.port \(use '0' for a random port\)
+
+  * the MongoClient created by MongoAutoConfiguration will be automatically configured to use the randomly allocated port
+
+* if SLF4J is on the classpath, output produced by Mongo will be routed to a specific logger
+
+## Neo4J
+
+* ...
+
+## SolR
+
+* auto configuration for client library on top of what Spring Data SolR brings
+  * spring-boot-starter-data-solr
+* connecting: inject the auto configured SolrClient
+  * connects to localhost:8983/solr by default
+* creation of queries based on method names
+
+## ElasticSearch
+
+* auto configuration on top of Spring Data Elastic Search
+* spring-boot-starter-data-elasticsearch
+* ...
 
 
 
