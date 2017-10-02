@@ -136,5 +136,47 @@ Configuration keys:
 * automatically configured embedded in-memory server
   * if "schema.ldif" on the classpath: used for initialization
 
+## Distributed transactions
+
+* with JTA: Atomikos or Bitronix
+  * if on the classpath: automatically configured JtaTransactionManager
+* @Transactional
+* Spring Boot ensures that depends-on settings are applied to Spring beans
+
+Atomikos
+
+* spring-boot-starter-jta-atomikos
+* Atomikos transaction logs are written to a "transaction-logs" folder in the application work directory \(app home dir\)
+  * customize: spring.jta.log-dir
+* properties
+  * spring.jta.atomikos.properties
+    * full list: AtomikosProperties
+
+Bitronix
+
+* spring-boot-starter-jta-bitronix
+
+JMS
+
+* if JTA is used, the primary JMS connection factory bean will be XA aware and participate in distributed transactions.
+
+By default, we inject XaJmsConnectionFactory \(qualifier: xaJmsConnectionFactory\)
+
+To use a non-XA ConnectionFactory for some cases:
+
+```
+@Autowired
+@Qualifier("nonXaJmsConnectionFactory")
+...
+```
+
+## Hazelcast
+
+* automatically configured HazelcastInstance
+* define a com.hazelcast.config.Config instance if needed
+* can also use spring.hazelcast.config.\*
+
+
+
 
 

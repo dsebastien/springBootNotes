@@ -3,6 +3,7 @@
 ## About
 
 * automatically configured by Spring Boot is @EnableCaching is added
+* spring-boot-starter-cache
 * applies caching to methods
 * @Cacheable\("nameOfCacheEntry"\) public int compute\(int i\)
   * will look for cache with "i" in the configured cache entry
@@ -18,6 +19,9 @@
   * Redis
   * ...
 * force cache provider to use via spring.cache.type \(useful to disable caching in test environments\)
+* Spring Boot automatically configures EhCache3 & Hazelcast if present on the classpath
+
+
 
 
 
