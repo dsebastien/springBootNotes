@@ -1,6 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
+* [CLI](cli.md)
 * [Maven](/maven.md)
 * [Configuration](configuration.md)
 * [Data access](data-access.md)
@@ -17,4 +18,5 @@
 * [Caching](caching.md)
 * [Logging](logging.md)
 * [Production](production.md)
+* [How-to](how-to.md)
 

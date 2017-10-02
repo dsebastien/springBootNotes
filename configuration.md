@@ -188,5 +188,9 @@ Active profiles can be defined via
 * variables can be used within
   * can be defined through MANIFEST.MF \(e.g., application name with Maven filtering applied to the manifest\)
 
+## Properties list
+
+https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/\#appendix
+
 
 
