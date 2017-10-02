@@ -106,7 +106,35 @@ Configuration keys:
 
 * auto configuration on top of Spring Data Elastic Search
 * spring-boot-starter-data-elasticsearch
+* connecting using Jest
+  * if Jest is on the classpath a JestClient will be configured automatically
+    * by default it connects to localhost:9200
+  * properties
+    * spring.elasticsearch.jest.uris=...
+    * spring.elasticsearch.jest.read-timeout=...
+    * spring.elasticsearch.jest.username=...
+* auto configured ElasticSearchTemplate
+  * by default, local in-memory server
+  * home set to work directory
+    * customize via spring.data.elasticsearch.properties.path.home=...
+* auto construct queries in repositories based on method names
+
+## Cassandra
+
+* auto configured CassandraTemplate or Session
+* spring-boot-starter-data-cassandra
+* repositories support is limited: annotate finder methods with @Query
+
+## CouchBase
+
 * ...
+
+## LDAP
+
+* spring-boot-starter-ldap
+* properties: LdapTemplate
+* automatically configured embedded in-memory server
+  * if "schema.ldif" on the classpath: used for initialization
 
 
 
