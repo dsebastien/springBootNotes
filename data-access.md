@@ -3,7 +3,6 @@
 ## Entities
 
 * @EntityScan: used by Spring Boot to detect entities \(e.g., JPA entities\)
-  * 
 
 ## Embedded DB support
 
@@ -54,7 +53,8 @@ Configuration keys:
 
 ## Redis
 
-* auto configuration of the Jedis client library
+* auto configuration of the Lettuce client library
+  * https://lettuce.io/
 * spring-boot-starter-data-redis
 * connecting: inject an auto configured
   * RedisConnectionFactory
@@ -175,8 +175,6 @@ To use a non-XA ConnectionFactory for some cases:
 * automatically configured HazelcastInstance
 * define a com.hazelcast.config.Config instance if needed
 * can also use spring.hazelcast.config.\*
-
-
 
 
 
